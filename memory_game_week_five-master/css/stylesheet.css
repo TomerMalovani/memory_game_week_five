@@ -119,6 +119,8 @@
   
   /* Style the back side */
   .flip-card-back {
-    background-color: black;
+    background-image: url("../img/ca1.jpg");
+    background-position: center;
+    background-size: 90%;
     transform: rotateY(180deg);
   }
