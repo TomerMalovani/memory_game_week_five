@@ -8,20 +8,11 @@ class Card {
     }
 
     flipcard() {
-
-
-        this.id.addEventListener('click', function () {
-            
-                    this.classList.add("flip");
-                    // let a = switch_card_back.bind(this);
-                    // setTimeout(a,1000);
-
-        });
-
+                    this.id.classList.add("flip");
     }
-    //  switch_card_back(){
-    //     this.classList.remove("flip");
-    //      }
+     switch_card_back(){
+        this.classList.remove("flip");
+         }
 
     rand_img(imgarraycheck){
         let imgarray = ["ca1","ca2","ca3","ca4","ca5","ca6","ca1","ca2","ca3","ca4","ca5","ca6"];
@@ -48,12 +39,31 @@ let imgarraycheck = [true,true,true,true,true,true,true,true,true,true,true,true
 let cardsarr = [];
 for (let i = 0; i <= 11; i++) {
     cardsarr[i] = new Card(document.getElementById("card" + i),document.getElementById("backcard" + i), "", false);
-    cardsarr[i].flipcard();
     cardsarr[i].rand_img(imgarraycheck);
-
+     start(cardsarr[i]);
 }
 
 
+
+
+   
+function start(event){
+    event.id.addEventListener('click',function(){
+        event.flipcard();
+        check(event);
+        
+    });
+}
+function check(checkcard){
+    for(let i =0; i < cardsarr; i++){
+        checkcard[i].id.addEventListener('click',function(){
+        if (this.imgUrl===checkcard.imgUrl){
+            console.log("good work");
+        }  });
+    }
+    
+  
+}
 
 
 
